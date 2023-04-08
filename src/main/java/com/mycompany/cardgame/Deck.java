@@ -15,7 +15,12 @@ public class Deck {
     private Card cards[];
     private int cardsInDeck;
     
-    public void reset() {
+    public Deck(){
+        cards = new Card[52];
+        reset();
+    }
+    
+    public final void reset() {
         Card.Suit[] suits = Card.Suit.values();
         Card.Value[] values = Card.Value.values();
         cardsInDeck = 0;
