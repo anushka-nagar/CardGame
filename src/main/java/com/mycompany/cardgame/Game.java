@@ -48,15 +48,15 @@ public class Game {
         
         switch (validValue) {
             case Ace:{
-                JLabel message = new JLabel(this.players[currentPlayer] + " was skipped!");
+                JLabel message = new JLabel(players[currentPlayer] + " was skipped!");
                 message.setFont(new Font("Ariel", Font.BOLD, 48));
                 JOptionPane.showMessageDialog(null, message);
                 if (gameDirection == false){
-                    currentPlayer = (currentPlayer + 1) % this.players.length;
+                    currentPlayer = (currentPlayer + 1) % players.length;
                 }   if (gameDirection == true){
-                    currentPlayer = (currentPlayer - 1) % this.players.length;
+                    currentPlayer = (currentPlayer - 1) % players.length;
                     if (currentPlayer == -1){
-                        currentPlayer = this.players.length - 1;
+                        currentPlayer = players.length - 1;
                     }
                 }   
                 break;
@@ -68,16 +68,16 @@ public class Game {
                 gameDirection = !gameDirection;
                 currentPlayer = (currentPlayer - 1) % players.length;
                 if (currentPlayer == -1){
-                    currentPlayer = this.players.length - 1;
+                    currentPlayer = players.length - 1;
                 }
                 break;
             }
             case Queen:{
-                playerHand.get(currentPlayer).addAll(new ArrayList<Card>(Arrays.asList(deck.drawCards(2))));
+                getPlayerHand(players[currentPlayer]).addAll(new ArrayList<Card>(Arrays.asList(deck.drawCards(2))));
                 break;
             }
             case Jack:{
-                playerHand.get(currentPlayer).addAll(new ArrayList<Card>(Arrays.asList(deck.drawCards(4))));
+                getPlayerHand(players[currentPlayer]).addAll(new ArrayList<Card>(Arrays.asList(deck.drawCards(4))));
                 break;
             }
             default:
